@@ -38,6 +38,7 @@
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter location" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="jmf-VS-UXv">
                                                 <rect key="frame" x="50" y="0.0" width="260" height="40"/>
+                                                <color key="backgroundColor" systemColor="separatorColor"/>
                                                 <color key="tintColor" name="weatherColour"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="XPG-ck-twF"/>
@@ -54,6 +55,9 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="tintColor" name="weatherColour"/>
                                                 <state key="normal" backgroundImage="magnifyingglass" catalog="system"/>
+                                                <connections>
+                                                    <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qyT-6S-3o9"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -142,6 +146,9 @@
         <namedColor name="weatherColour">
             <color red="0.10400000214576721" green="0.29899999499320984" blue="0.32400000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
