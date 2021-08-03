@@ -13,7 +13,7 @@ class ViewController: UIViewController,UITextFieldDelegate{
     @IBOutlet weak var tempValue: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var textInput: UITextField!
-    
+    var weatherManager = WeatherManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,9 +38,10 @@ class ViewController: UIViewController,UITextFieldDelegate{
         }
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
-//       use textField.text to city
+        if let city = textField.text {
+            weatherManager.fetch_weather(name: city)
+        }
         textField.text = ""
-        
     }
     
 }
