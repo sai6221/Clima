@@ -7,9 +7,15 @@
 
 import Foundation
 
+protocol WeatherManagerDelegate {
+    func didUpdateWeather(weather: WeatherModel)
+}
+
 struct WeatherManager {
     
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?units=metric&appid=c1c89d223460e6030ffca9e6762f7034"
+    
+    var delegate: WeatherManagerDelegate?
     
     func fetch_weather(name: String){
         let url = "\(weatherURL)&q=\(name)"
@@ -32,7 +38,9 @@ struct WeatherManager {
                     return
                 }
                 if let safeData = data{
-                    self.parseJSON(weatherData: safeData)
+                    if let weather = self.parseJSON(weatherData: safeData){
+                        self.delegate?.didUpdateWeather(weather: weather)
+                    }
                 }
             }
             
@@ -42,43 +50,22 @@ struct WeatherManager {
         }
     }
     
-    func parseJSON(weatherData: Data){
+    func parseJSON(weatherData: Data) -> WeatherModel? {
         let decoder = JSONDecoder()
         do{
             let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
-            print(decodedData.name)
-            print(decodedData.main.temp)
+            let name = decodedData.name
+            let temp = decodedData.main.temp
             let id = decodedData.weather[0].id
-            getConditionName(weatherid: id)
+            
+            let weather = WeatherModel(name: name,id: id, temp: temp)
+            return weather
+            
         } catch{
             print(error)
+            return nil
         }
     }
-    func getConditionName(weatherid: Int) -> String{
-        switch weatherid{
-            case 200...232:
-                return "cloud.bolt"
-
-            case 300...321:
-                return "cloud.bolt"
         
-            case 500...531:
-                return "cloud.bolt"
-            case 600...622:
-                return "cloud.bolt"
-
-            case 701...781:
-                return "cloud.bolt"
-
-            case 800:
-                return "cloud.bolt"
-
-            case 801...804:
-                return "cloud.bolt"
-
-            default:
-                return "cloud"
-    }
-}
 
 }

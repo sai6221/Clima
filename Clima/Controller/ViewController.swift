@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController,UITextFieldDelegate{
+class ViewController: UIViewController,UITextFieldDelegate,WeatherManagerDelegate{
 
     @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var tempValue: UILabel!
@@ -16,7 +16,7 @@ class ViewController: UIViewController,UITextFieldDelegate{
     var weatherManager = WeatherManager()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        weatherManager.delegate = self
         textInput.delegate = self
         // Do any additional setup after loading the view.
     }
@@ -42,6 +42,9 @@ class ViewController: UIViewController,UITextFieldDelegate{
             weatherManager.fetch_weather(name: city)
         }
         textField.text = ""
+    }
+    func didUpdateWeather(weather: WeatherModel){
+        print(weather.temp)
     }
     
 }
