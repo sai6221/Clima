@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C132A02F26BE9F1900A236B5 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C132A02E26BE9F1900A236B5 /* WeatherData.swift */; };
 		C175BEA026B922E800DB6165 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C175BE9F26B922E800DB6165 /* WeatherManager.swift */; };
 		C1F0C8B126B7FE07008844A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F0C8B026B7FE07008844A4 /* AppDelegate.swift */; };
 		C1F0C8B326B7FE07008844A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F0C8B226B7FE07008844A4 /* SceneDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C132A02E26BE9F1900A236B5 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		C175BE9F26B922E800DB6165 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		C1F0C8AD26B7FE07008844A4 /* Clima.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clima.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1F0C8B026B7FE07008844A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				C175BE9F26B922E800DB6165 /* WeatherManager.swift */,
+				C132A02E26BE9F1900A236B5 /* WeatherData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1F0C8B526B7FE07008844A4 /* ViewController.swift in Sources */,
+				C132A02F26BE9F1900A236B5 /* WeatherData.swift in Sources */,
 				C1F0C8B126B7FE07008844A4 /* AppDelegate.swift in Sources */,
 				C175BEA026B922E800DB6165 /* WeatherManager.swift in Sources */,
 				C1F0C8B326B7FE07008844A4 /* SceneDelegate.swift in Sources */,
