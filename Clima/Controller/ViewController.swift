@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController,UITextFieldDelegate,WeatherManagerDelegate{
+class ViewController: UIViewController{
 
     @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var tempValue: UILabel!
@@ -20,7 +20,12 @@ class ViewController: UIViewController,UITextFieldDelegate,WeatherManagerDelegat
         textInput.delegate = self
         // Do any additional setup after loading the view.
     }
+    
+}
 
+//MARK: - UITextFieldDelegate
+
+extension ViewController: UITextFieldDelegate{
     @IBAction func searchButton(_ sender: UIButton) {
         textInput.endEditing(true)
         
@@ -43,6 +48,11 @@ class ViewController: UIViewController,UITextFieldDelegate,WeatherManagerDelegat
         }
         textField.text = ""
     }
+}
+
+//MARK: - WeatherManagerDelegate
+
+extension ViewController: WeatherManagerDelegate{
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel){
         DispatchQueue.main.async {
             self.tempValue.text = weather.tempString
@@ -53,6 +63,4 @@ class ViewController: UIViewController,UITextFieldDelegate,WeatherManagerDelegat
     func didFailError(error: Error) {
         print(error)
     }
-    
 }
-
